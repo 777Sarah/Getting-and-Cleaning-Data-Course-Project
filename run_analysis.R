@@ -10,7 +10,7 @@ download.file(fileUrl, destfile = "./data/Dataset.zip", method = "curl")
 
 unzip(zipfile = "./data/Dataset.zip", exdir = "./data")
 
-## 1. Merges the training and the test sets to create one data set.
+## 1. Merges the training and the test data sets to create one data set.
 
 ## 1.1 test data:
 
@@ -29,7 +29,7 @@ SubjectTrain <- read.table("./data/UCI HAR Dataset/train/subject_train.txt")
 features <- read.table("./data/UCI HAR Dataset/features.txt")
 activity <- read.table("./data/UCI HAR Dataset/activity_labels.txt")
 
-## 1.4 merges train and test data in one dataset:
+## 1.4 merges train and test data in one data set:
 
 X <- rbind(XTest, XTrain)
 Y <- rbind(YTest, YTrain)
@@ -52,7 +52,7 @@ subsetX <- X[,index]
 dim_subsetX <- dim(subsetX)
 print(dim_subsetX)
 
-## 3. Uses descriptive activity names to name the activies in the data set.
+## 3. Uses descriptive activity names to name the activities in the data set.
 
 Y[,1] <- activity[Y[,1],2]
 headY <- head(Y)
@@ -61,10 +61,10 @@ print(headY)
 ## 4. Appropriately labels the data set with descriptive variable names.
 
 names <- features[index, 2]
-names(X) <- names
+names(subsetX) <- names
 names(Subject) <- "SubjectID"
 names(Y) <- "Activity"
-CleanedData <- cbind(Subject, Y, X)
+CleanedData <- cbind(Subject, Y, subsetX)
 headCleanedData <- head(CleanedData[,c(1:4)])
 print(headCleanedData)
 
