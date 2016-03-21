@@ -40,3 +40,19 @@ What's in this repository
 * CodeBook.md: information about raw and tidy data set. 
 * Tidy.txt: the tidy data after clean the raw data.
 
+How the script works
+---------------------
+
+In run_analysis.R, the basic flow is:
+
+* Getting the data and save it to working directory, unzip the files.
+* Merge the training and the test data sets to create one data set. 
+  * Read the test data sets from raw data files.
+  * Read the train data sets from raw data files.
+  * Read the features and activity data sets.
+  * Merge the train and the test data in one data set.
+* Extracts only the measurements on the mean and standard deviation for each measurement.
+* Uses descriptive activity names to name the activities in the data set.
+* Appropriately labels the data set with descriptive variable names.
+* From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
